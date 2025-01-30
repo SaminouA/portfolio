@@ -6,7 +6,7 @@ body {
     padding: 0;
     line-height: 1.6;
     background-image: url('images/image-info3.jpg'); /* Arrière-plan comme dans .hero */
-    background-attachment: scroll;  /* Crée l'effet de parallaxe */
+    background-attachment: fixed;  /* Crée l'effet de parallaxe */
     background-position: center;
     background-size: cover;
     color: #333;
@@ -28,19 +28,8 @@ body:hover::before {
 }
 
 h1, h2, h3 {
-    font-size: 1.2em; /* Ajuste la taille des titres pour les petits écrans */
-}
-
-/* Ajout de padding pour une meilleure lisibilité sur mobile */
-.container {
-    padding: 10px;
-}
-
-
-/* Amélioration pour l'image de fond sur mobile */
-img {
-max-width: 100%;
-height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 /* Navbar globale */
@@ -131,11 +120,12 @@ height: auto;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+ (max-width: 768px) {
     .menu-toggle {
         display: flex;
+        width: 150px;
     }
-
+    
     .nav-links {
         position: fixed;
         top: 0;
@@ -463,15 +453,20 @@ height: auto;
     #about {
         flex-direction: column;
         padding: 60px 20px;
+        width: 450px;
     }
 
     #about .text {
         padding: 0;
         text-align: center;
+        width: 450px;
+
     }
 
     #about .image-container {
         grid-template-columns: 1fr;
+        width: 450px;
+
     }
 }
 #about:hover{
@@ -632,10 +627,14 @@ height: auto;
 @media (max-width: 768px) {
     #skills h2 {
         font-size: 2.8rem;
+        width: 450px;
+
     }
 
     .skills-container {
         grid-template-columns: 1fr 1fr;
+        width: 450px;
+
     }
 
     .skill {
@@ -646,14 +645,20 @@ height: auto;
 @media (max-width: 480px) {
     #skills h2 {
         font-size: 2.4rem;
+        width: 450px;
+
     }
 
     .skills-container {
         grid-template-columns: 1fr;
+        width: 450px;
+
     }
 
     .skill {
         padding: 20px;
+        width: 450px;
+
     }
 }
 .skills-container :nth-child(5) {
@@ -1141,35 +1146,50 @@ height: auto;
 @media (max-width: 768px) {
     #contact h2 {
         font-size: 2.6rem;
+        width: 450px;
+
     }
 
     #contact ul {
         grid-template-columns: 1fr 1fr;
+        width: 450px;
+
     }
 
     #contact li {
         padding: 25px;
+        width: 450px;
+
     }
 
     #contact p {
         font-size: 1rem;
+        width: 450px;
+
     }
 }
 
 @media (max-width: 480px) {
     #contact h2 {
         font-size: 2.2rem;
+        width: 450px;
+
     }
 
     #contact ul {
         grid-template-columns: 1fr;
+        width: 450px;
+
     }
 
     #contact li {
         padding: 20px;
+        width: 450px;
+
     }
 
     #contact p {
         font-size: 0.95rem;
+         width: 450px;
     }
 }
