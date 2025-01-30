@@ -6,7 +6,7 @@ body {
     padding: 0;
     line-height: 1.6;
     background-image: url('images/image-info3.jpg'); /* Arrière-plan comme dans .hero */
-    background-attachment: fixed;  /* Crée l'effet de parallaxe */
+    background-attachment: scroll;  /* Crée l'effet de parallaxe */
     background-position: center;
     background-size: cover;
     color: #333;
@@ -28,8 +28,19 @@ body:hover::before {
 }
 
 h1, h2, h3 {
-    margin: 0;
-    padding: 0;
+    font-size: 1.2em; /* Ajuste la taille des titres pour les petits écrans */
+}
+
+/* Ajout de padding pour une meilleure lisibilité sur mobile */
+.container {
+    padding: 10px;
+}
+
+
+/* Amélioration pour l'image de fond sur mobile */
+img {
+max-width: 100%;
+height: auto;
 }
 
 /* Navbar globale */
