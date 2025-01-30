@@ -634,6 +634,7 @@ h1, h2, h3 {
     }
 
     .skill {
+        width: 90%;
         padding: 30px;
     }
 }
@@ -645,6 +646,15 @@ h1, h2, h3 {
 
     }
 
+
+    .skill{
+
+             
+       width: 90%;
+        
+            }
+    }
+
     .skills-container {
         grid-template-columns: 1fr;
     }
@@ -654,7 +664,7 @@ h1, h2, h3 {
         width: 90%;
 
     }
-}
+
 .skills-container :nth-child(5) {
     grid-column: span 2;
     justify-self: center;
