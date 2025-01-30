@@ -120,12 +120,12 @@ h1, h2, h3 {
 }
 
 /* Responsive */
- (max-width: 768px) {
+@media (max-width: 768px) {
     .menu-toggle {
         display: flex;
-        width: 150px;
+        width: 90%;
     }
-    
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -453,20 +453,18 @@ h1, h2, h3 {
     #about {
         flex-direction: column;
         padding: 60px 20px;
-        width: 450px;
+        width: 90%;
     }
 
     #about .text {
         padding: 0;
         text-align: center;
-        width: 450px;
+        width: 90%;
 
     }
 
     #about .image-container {
         grid-template-columns: 1fr;
-        width: 450px;
-
     }
 }
 #about:hover{
@@ -627,14 +625,12 @@ h1, h2, h3 {
 @media (max-width: 768px) {
     #skills h2 {
         font-size: 2.8rem;
-        width: 450px;
+        width: 90%;
 
     }
 
     .skills-container {
         grid-template-columns: 1fr 1fr;
-        width: 450px;
-
     }
 
     .skill {
@@ -645,19 +641,17 @@ h1, h2, h3 {
 @media (max-width: 480px) {
     #skills h2 {
         font-size: 2.4rem;
-        width: 450px;
+        width: 90%;
 
     }
 
     .skills-container {
         grid-template-columns: 1fr;
-        width: 450px;
-
     }
 
     .skill {
         padding: 20px;
-        width: 450px;
+        width: 90%;
 
     }
 }
@@ -1146,25 +1140,21 @@ h1, h2, h3 {
 @media (max-width: 768px) {
     #contact h2 {
         font-size: 2.6rem;
-        width: 450px;
+        width: 90%;
 
     }
 
     #contact ul {
         grid-template-columns: 1fr 1fr;
-        width: 450px;
-
     }
 
     #contact li {
         padding: 25px;
-        width: 450px;
-
     }
 
     #contact p {
         font-size: 1rem;
-        width: 450px;
+        width: 90%;
 
     }
 }
@@ -1172,24 +1162,21 @@ h1, h2, h3 {
 @media (max-width: 480px) {
     #contact h2 {
         font-size: 2.2rem;
-        width: 450px;
+        width: 90%;
 
     }
 
     #contact ul {
         grid-template-columns: 1fr;
-        width: 450px;
-
     }
 
     #contact li {
         padding: 20px;
-        width: 450px;
-
     }
 
     #contact p {
         font-size: 0.95rem;
-         width: 450px;
+        width: 90%;
+
     }
 }
