@@ -1,0 +1,1164 @@
+/* Styles globaux */
+body {
+    position: relative; /* Nécessaire pour le positionnement du pseudo-élément */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url('images/image-info3.jpg'); /* Arrière-plan comme dans .hero */
+    background-attachment: fixed;  /* Crée l'effet de parallaxe */
+    background-position: center;
+    background-size: cover;
+    color: #333;
+}
+/* Ajoute une superposition sombre globale pour améliorer la lisibilité du texte */
+body:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Initialement transparent */
+    transition: background 0.3s ease; /* Transition pour l'effet de survol */
+    z-index: -1; /* Assure que l'overlay soit sous le contenu */
+}
+
+/* Effet au survol du body */
+body:hover::before {
+    background: rgba(0, 0, 0, 0.75); /* Augmente l'opacité au survol */
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar globale */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8); /* Fond semi-transparent pour un effet moderne */
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Effet d'ombre */
+    top: 0;
+    left: 0;
+    font-family: 'Roboto', sans-serif;
+    transition: background 0.4s ease-in-out; /* Transition douce */
+}
+
+.navbar:hover {
+    background: rgba(45, 55, 72, 0.8); /* Change légèrement le fond au survol */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #38bdf8; /* Couleur cohérente avec "Formation" */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: color 0.3s ease-in-out;
+}
+
+.logo:hover {
+    color: #10b981; /* Change la couleur au survol */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Espace entre les liens */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #10b981;
+    background: rgba(31, 41, 55, 0.8); /* Fond au survol */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #38bdf8, #10b981);
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Menu toggle pour mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    background-color: #f0f0f0;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    transition: all 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 250px;
+        background: rgba(31, 41, 55, 0.95); /* Fond semi-transparent pour le menu mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto; /* Permet de défiler si le contenu dépasse */
+    }
+
+    .nav-links.active {
+        transform: translateX(0%);
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+    }
+}
+/* Portfolio*/
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #38bdf8;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    gap: 10px; /* Ajoute de l'espace entre le texte et l'image */
+}
+
+.logo-icon {
+    width: 30px; /* Taille de l'image */
+    height: 30px;
+    object-fit: contain; /* Préserve les proportions de l'image */
+    transition: transform 0.3s ease-in-out; /* Effet au survol */
+}
+
+.logo-icon:hover {
+    transform: scale(1.4); /* Agrandit légèrement l'image au survol */
+}
+
+
+  
+
+/* Section d'accueil */
+.hero {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6); /* Ombre sur l'image de fond pour rendre le texte plus lisible */
+    background-position: center;
+    background-size: cover;
+    height: 100vh; /* Taille de l'arrière-plan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Ajoute un voile sombre pour le texte */
+    z-index: 1;
+    transition: background 0.3s ease-in-out; /* Légère animation pour l'overlay */
+}
+
+.hero:hover:before {
+    background: rgba(0, 0, 0, 0.75); /* Augmente l'opacité de l'overlay au survol */
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center; /* Centrer tout le texte */
+    padding: 0 20px;
+}
+
+.hero .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Titres et texte */
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Ombre portée pour améliorer la lisibilité */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3); /* Ombre portée pour le texte */
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1rem;
+    color: white;
+    background-color: #34ced3; /* Couleur plus douce et en rapport avec le thème */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.hero .btn::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #34ced3; /* Bordure de la couleur du bouton */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-in-out;
+}
+
+.hero .btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.hero .btn:hover {
+    background-color: #2dd18e; /* Changement de couleur au survol */
+}
+
+/* Effet de soulignement dynamique sous les titres */
+.hero h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.hero h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(45deg, #38bdf8, #10b981);
+    transition: width 0.3s ease-in-out;
+}
+
+.hero h3:hover {
+    color: #38bdf8;
+}
+
+.hero h3:hover::after {
+    width: 100%;
+}
+
+/* Photo de profil : suppression de la bordure et modification de la forme */
+.profile-photo {
+    width: 100%;
+    max-width: 300px; /* Limite la taille maximale */
+    height: 300px; /* Maintient la forme ronde */
+    border-radius: 50%; /* Forme ronde */
+    object-fit: cover; /* Assure que l'image couvre bien le cercle */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombre discrète */
+    transition: all 0.3s ease-in-out; /* Transition douce */
+}
+
+.profile-photo:hover {
+    transform: scale(1.5); /* Agrandissement de l'image */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Ombre plus prononcée au survol */
+    transition: all 0.3s ease-in-out; /* Effet de transition pour le survol */
+}
+
+
+/* Mise en page en deux colonnes */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.text {
+    flex: 1;
+    padding-right: 20px; /* Espace entre le texte et l'image */
+    text-align: left; /* Aligner le texte à gauche */
+}
+
+.image {
+    flex: 0 0 400px; /* Taille fixe pour l'image */
+    text-align: center; /* Centrer l'image dans sa colonne */
+}
+
+
+
+
+
+/* Section About */
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombre nette */
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* Contenu texte */
+#about .content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#about .content p {
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#about .content p:hover {
+    color: #38bdf8; /* Changement de couleur */
+    transform: translateX(5px); /* Décalage léger à droite */
+}
+
+
+#about .text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+#about h2 {
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: #f3f7f8; /* Titre bleu clair pour correspondre à Skills */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    
+}
+
+#about h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 120px;
+    height: 4px;
+    background-color: #38bdf8; /* Barre soulignée bleue */
+    border-radius: 20px;
+}
+
+#about p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: #d1d5db; /* Texte gris clair */
+}
+
+#about p i {
+    color: #10b981; /* Icônes vert clair */
+    margin-right: 10px;
+}
+
+/* Galerie d'images */
+#about .image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    flex: 1;
+}
+
+#about .image-container h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #f0f0f0; /* Sous-titre gris clair */
+    margin-bottom: 15px;
+}
+
+#about .image-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Ombres profondes */
+    transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#about .image-container img:hover {
+    transform: scale(1.8); /* Agrandissement léger */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 3px solid #38bdf8; /* Bordure bleue claire au survol */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about {
+        flex-direction: column;
+        padding: 60px 20px;
+    }
+
+    #about .text {
+        padding: 0;
+        text-align: center;
+    }
+
+    #about .image-container {
+        grid-template-columns: 1fr;
+    }
+}
+#about:hover{
+    background: rgba(45, 55, 72, 0.8); /* Change légèrement le fond au survol */
+
+
+}
+.image-container figure {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+
+.image-container figcaption {
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    margin-top: 10px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.image-container figcaption:hover {
+    color: #38bdf8; /* Changer la couleur au survol */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section Skills */
+#skills {
+    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */    padding: 80px 0;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombre nette pour un effet waouh */
+}
+#skills:hover {
+  
+  background: rgba(45, 55, 72, 0.8); /* Change légèrement le fond au survol */
+    
+   
+}
+
+#skills .container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#skills h2 {
+    text-align: left;
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+#skills h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 120px;
+    height: 4px;
+    background-color: #38bdf8;
+    border-radius: 20px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.skill {
+    background: rgba(0, 0, 0, 0.6); /* Fond plus transparent pour un effet moderne */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.skill-name {
+    display: block;
+    font-size: 1.6rem;
+    color: #38bdf8;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.level {
+    display: block; /* Assure que le niveau occupe toute la ligne sous le nom */
+    font-size: 1.2rem;
+    color: #d1d5db;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.level-advanced {
+    color: #10b981;
+    font-weight: bold;
+}
+
+.skill::before {
+    content: '✦';
+    font-size: 3rem;
+    color: #38bdf8;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1) translateX(-50%);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translateX(-50%);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1) translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    #skills h2 {
+        font-size: 2.8rem;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .skill {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    #skills h2 {
+        font-size: 2.4rem;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skill {
+        padding: 20px;
+    }
+}
+.skills-container :nth-child(5) {
+    grid-column: span 2;
+    justify-self: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Style de la section projet */
+/* Section Mes Projets */
+#projects {
+    position: relative;
+    background: rgba(0, 0, 0, 0.3); /* Ombre sur l'image de fond pour rendre le texte plus lisible */
+    padding: 80px 0;
+    font-family: 'Roboto', sans-serif;
+    color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#projects .container {
+    width: 85%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#projects h2 {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 50px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+    text-align: left; /* Centrer le titre */
+}
+
+#projects h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100px;
+    height: 5px;
+    background-color: #38bdf8;
+    border-radius: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#projects .project {
+    background-color: rgba(31, 41, 55, 0.8); /* Couleur du fond des projets avec plus de transparence */
+    border-radius: 12px;
+    padding: 30px; /* Réduction de la taille du cadre */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#projects .project:hover {
+    transform: translateY(-5px); /* Légère translation vers le haut au survol */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Ombre marquée */
+    background-color: rgba(45, 55, 72, 0.9); /* Augmentation de l’opacité lors du survol */
+    filter: brightness(1.1); /* Légère augmentation de la luminosité */
+}
+
+/* Titre du projet */
+#projects h3 {
+    font-size: 2.5rem; /* Taille plus grande du titre */
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 700; /* Poids de police plus accentué */
+    text-transform: uppercase; /* Transforme en majuscules pour plus de dynamisme */
+    position: relative;
+    border-bottom: 3px solid #38bdf8; /* Soulignement avec la couleur #38bdf8 */
+}
+
+/* Paragraphe du projet */
+#projects p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #d1d5db;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+#projects p strong {
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+#projects p em {
+    font-style: italic;
+    color: #a0aec0;
+}
+
+/* Sticker dans le coin */
+.project .sticker {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    border: 2px solid #0078d4;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    z-index: 2; /* Assure que le sticker reste au-dessus du fond dynamique */
+}
+
+.project .sticker img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Effet hover pour les stickers */
+.project .sticker:hover {
+    transform: rotate(180deg) scale(1.5); /* Rotation et agrandissement du sticker */
+    background-color: #38bdf8;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Ombre marquée pour l'effet */
+}
+
+/* Effet de fond dynamique au survol du projet */
+#projects .project {
+    position: relative;
+    background-color: rgba(31, 41, 55, 0.8);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.4s ease;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards;
+}
+
+/* Effet de fond dynamique (radial) */
+#projects .project::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.2), rgba(16, 185, 129, 0.2));
+    transform: translate(-50%, -50%) scale(0);
+    z-index: -1; /* Fond sous le contenu principal */
+    transition: transform 0.5s ease-out;
+}
+
+#projects .project:hover::after {
+    transform: translate(-50%, -50%) scale(1); /* Agrandissement du fond radial au survol */
+}
+
+#projects .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    background-color: rgba(45, 55, 72, 0.9);
+    filter: brightness(1.1);
+}
+#projects:hover {
+    background: rgba(45, 55, 72, 0.6); /* Change légèrement le fond au survol */
+
+}
+
+
+
+
+/* Section Formation */
+/* Section Formation */
+/* Section Formation */
+#formation {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6); /* Ombre sur l'image de fond pour rendre le texte plus lisible */
+    padding: 80px 0;
+    font-family: 'Roboto', sans-serif;
+    color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#formation .container {
+    width: 85%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#formation h2 {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 50px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+#formation h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100px;
+    height: 5px;
+    background-color: #38bdf8;
+    border-radius: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#formation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+#formation li {
+    background-color: rgba(31, 41, 55, 0.8); /* Couleur du fond des items avec plus de transparence */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+#formation li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: rgba(45, 55, 72, 0.9); /* Augmenter légèrement l’opacité lors du survol */
+}
+
+/* Effet de soulignement dynamique sous les titres */
+#formation h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+#formation h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(45deg, #38bdf8, #10b981);
+    transition: width 0.3s ease-in-out;
+}
+
+#formation li:hover h3 {
+    color: #38bdf8;
+}
+
+#formation li:hover h3::after {
+    width: 100%;
+}
+
+/* Ajout d'un effet hover similaire à la section Contact */
+#formation li:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(56, 189, 248, 0.2), rgba(16, 185, 129, 0.2));
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#formation li:hover::before {
+    opacity: 1;
+}
+
+#formation p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #d1d5db;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+#formation p strong {
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+#formation p em {
+    font-style: italic;
+    color: #a0aec0;
+}
+
+#formation:hover {
+    background: rgba(45, 55, 72, 0.8); /* Change légèrement le fond au survol */
+
+}
+
+
+/* Section Contact */
+/* Section Contact */
+#contact {
+    background: rgba(0, 0, 0, 0.3); /* Fond semi-transparent similaire à la navbar */
+    padding: 60px 20px;
+    color: #f0f0f0; /* Couleur texte similaire à la navbar */
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Effet d'ombre */
+    transition: background 0.4s ease-in-out; /* Transition douce */
+}
+
+#contact:hover {
+    background: rgba(45, 55, 72, 0.8); /* Change légèrement le fond au survol */
+}
+
+#contact .container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#contact h2 {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fcfeff; /* Couleur de la navbar pour cohérence */
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+#contact h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(45deg, #38bdf8, #38bdf8); /* Gradient similaire */
+    border-radius: 10px;
+}
+
+#contact p {
+    text-align: left;
+    font-size: 1.2rem;
+    color: #f9fbfd;
+    margin-bottom: 30px;
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+#contact li {
+    background: rgba(31, 41, 55, 0.8); /* Fond similaire aux liens au survol */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+}
+
+#contact li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(45, 55, 72, 0.9);
+}
+
+#contact li strong {
+    font-size: 1.3rem;
+    color: #38bdf8;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+}
+
+#contact li a {
+    color: #f0f0f0;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+#contact li a:hover {
+    color: #10b981;
+    background: rgba(31, 41, 55, 0.8); /* Fond au survol */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+#contact li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #38bdf8, #10b981);
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+#contact li a:hover::after {
+    width: 100%;
+}
+
+#contact li::before {
+    content: '✦';
+    font-size: 2.2rem;
+    color: #38bdf8;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    #contact h2 {
+        font-size: 2.6rem;
+    }
+
+    #contact ul {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #contact li {
+        padding: 25px;
+    }
+
+    #contact p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact h2 {
+        font-size: 2.2rem;
+    }
+
+    #contact ul {
+        grid-template-columns: 1fr;
+    }
+
+    #contact li {
+        padding: 20px;
+    }
+
+    #contact p {
+        font-size: 0.95rem;
+    }
+}
