@@ -1283,3 +1283,17 @@ h1, h2, h3 {
     }
   }
   
+
+  @media (max-width: 768px) {
+    #formation {
+        padding: 30px 15px; /* Ajuster les paddings sur les petits écrans */
+    }
+
+    #formation h3 {
+        font-size: 1.1em;
+    }
+
+    #formation p {
+        font-size: 0.95em;
+    }
+}
