@@ -1,20 +1,22 @@
-// Fonction pour afficher l'image en plein écran au clic
-const galleryPhotos = document.querySelectorAll('.gallery-photo');
-const fullscreenDiv = document.createElement('div');
-fullscreenDiv.classList.add('fullscreen');
-document.body.appendChild(fullscreenDiv);
+// Fonction pour vérifier si un élément est visible dans la fenêtre
+function isInView(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
 
-galleryPhotos.forEach(photo => {
-    photo.addEventListener('click', () => {
-        const img = document.createElement('img');
-        img.src = photo.src; // Utiliser la même source d'image
-        fullscreenDiv.innerHTML = ''; // Vider le contenu de la vue plein écran
-        fullscreenDiv.appendChild(img);
-        fullscreenDiv.classList.add('active'); // Afficher la vue plein écran
+// Fonction pour ajouter des animations aux éléments visibles
+function handleScrollAnimation() {
+    const elements = document.querySelectorAll('.animate-on-scroll'); // Sélectionne tous les éléments avec cette classe
+
+    elements.forEach(element => {
+        if (isInView(element)) {
+            element.classList.add('animate'); // Ajoute la classe d'animation lorsque l'élément est visible
+        }
     });
-});
+}
 
-// Fermeture de la vue plein écran quand on clique dessus
-fullscreenDiv.addEventListener('click', () => {
-    fullscreenDiv.classList.remove('active');
-});
+// Écouteur d'événements pour l'événement de défilement
+window.addEventListener('scroll', handleScrollAnimation);
+
+// Appel initial pour les éléments déjà visibles lors du chargement de la page
+document.addEventListener('DOMContentLoaded', handleScrollAnimation);

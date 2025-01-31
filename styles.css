@@ -14,9 +14,11 @@ body {
 
 @media screen and (max-width: 768px) {
     body {
-        width: 90%;
+        max-width: 100%;  /* Autorise l'élément à occuper toute la largeur de l'écran */
+        margin: 0 auto;   /* Centre l'élément horizontalement */
     }
 }
+
 
 /* Ajoute une superposition sombre globale pour améliorer la lisibilité du texte */
 body:before {
@@ -1187,3 +1189,70 @@ h1, h2, h3 {
 
     }
 }
+
+
+/* Pour les écrans plus petits que 768px (tablettes et smartphones) */
+@media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero .text, .hero .image {
+      width: 100%;
+    }
+  
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  
+    .nav-links {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  }
+  
+  /* Pour les écrans plus petits que 480px (smartphones très petits) */
+  @media (max-width: 480px) {
+    .hero .text {
+      font-size: 14px;
+    }
+  
+    .skills-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .skills-container .skill {
+      margin-bottom: 10px;
+    }
+  
+    .projects {
+      display: block;
+    }
+  
+    .project {
+      margin-bottom: 20px;
+    }
+  }
