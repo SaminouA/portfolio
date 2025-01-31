@@ -11,6 +11,13 @@ body {
     background-size: cover;
     color: #333;
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 90%;
+    }
+}
+
 /* Ajoute une superposition sombre globale pour améliorer la lisibilité du texte */
 body:before {
     top: 0;
