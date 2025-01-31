@@ -50,7 +50,7 @@ h1, h2, h3 {
     padding: 10px 20px;
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Effet d'ombre */
     top: 0;
     left: 0;
@@ -197,6 +197,7 @@ h1, h2, h3 {
     background-size: cover;
     height: 100vh; /* Taille de l'arrière-plan */
     display: flex;
+    padding-top: 120px; /* Ajuste cette valeur selon la hauteur de ta navbar */
     justify-content: center;
     align-items: center;
     color: white;
@@ -340,10 +341,16 @@ h1, h2, h3 {
 }
 
 .text {
-    flex: 1;
-    padding-right: 20px; /* Espace entre le texte et l'image */
-    text-align: left; /* Aligner le texte à gauche */
+    min-height: 300px; /* Ajuste cette valeur si besoin */
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px; /* Ajuste cette valeur selon l'espace nécessaire */
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
 }
+
 
 .image {
     flex: 0 0 400px; /* Taille fixe pour l'image */
@@ -1295,5 +1302,69 @@ h1, h2, h3 {
 
     #formation p {
         font-size: 0.95em;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .text {
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+
+h1 {
+    font-size: 5vw; /* Ajuste la taille du texte en fonction de la largeur de l'écran */
+    max-width: 90%;
+    text-align: center;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .text {
+        text-align: center; /* Centre le texte */
+        padding: 20px; /* Ajoute de l'espace autour */
+    }
+
+    h1 {
+        font-size: 24px; /* Réduit la taille du titre pour les petits écrans */
+        line-height: 1.2; /* Ajuste l'espacement */
+        word-wrap: break-word; /* Évite les débordements */
+    }
+
+    p {
+        font-size: 16px; /* Ajuste la taille du texte */
+    }
+}
+
+
+
+.text h1 {
+    font-size: 24px;
+    display: block;
+    position: relative;
+    z-index: 10; /* Le met au premier plan */
+}
+
+
+
+@media screen and (max-width: 412px) {
+    .hero {
+        padding-top: 140px; /* Augmente si besoin */
+    }
+
+    .text h1 {
+        font-size: 22px; /* Diminue la taille du texte */
+        line-height: 1.2; /* Ajuste l'espacement */
+    }
+
+    .text p {
+        font-size: 14px; /* Rend le paragraphe plus lisible */
     }
 }
